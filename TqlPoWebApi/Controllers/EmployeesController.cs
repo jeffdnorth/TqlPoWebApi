@@ -22,15 +22,15 @@ namespace TqlPoWebApi.Controllers
         }
 
         //get: API/Employees/gpdoud/password
-        [HttpGet("{login}/{password)")]
+        [HttpGet("{login}/{password}")]
         public async Task<ActionResult<Employee>> Login(string login, string password)
         {
             var empl = await _context.Employee
                             .SingleOrDefaultAsync(e => e.Login == login && e.Password == password);
-                    if (empl == null)
-                    {
+            if (empl == null)
+            {
                 return NotFound();
-                     }
+            }
             return Ok(empl);
         }
         // GET: api/Employees
