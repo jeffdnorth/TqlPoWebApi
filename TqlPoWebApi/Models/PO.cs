@@ -14,10 +14,11 @@ namespace TqlPoWebApi.Models
 
         [Required, StringLength(80)]
         public string Description { get; set; }
+
         [Required, StringLength(20)]
         public string Status { get; set; } = "New";
-        [Column(TypeName = "decimal(9,2)")]
 
+        [Required, Column(TypeName = "decimal(9,2)")]
         public decimal Total { get; set; } = 0;
 
         public bool Active { get; set; } = true;

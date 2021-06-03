@@ -26,7 +26,16 @@ namespace TqlPoWebApi.Controllers
         public async Task<ActionResult<IEnumerable<PO>>> GetPOs()
         {
             return await _context.POs
-                            .Include(x=> x.Employee)
+                            .ToListAsync();
+        }
+
+
+        // GET: api/POes/empl
+        [HttpGet("empl")]
+        public async Task<ActionResult<IEnumerable<PO>>> GetPOsWithEmpl()
+        {
+            return await _context.POs
+                            .Include(x => x.Employee)
                             .ToListAsync();
         }
 
@@ -34,7 +43,8 @@ namespace TqlPoWebApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PO>> GetPO(int id)
         {
-            var pO = await _context.POs.FindAsync(id);
+            var pO = await _context.POs
+                                .FindAsync(id);
 
             if (pO == null)
             {
