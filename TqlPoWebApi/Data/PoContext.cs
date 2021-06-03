@@ -15,6 +15,7 @@ namespace TqlPoWebApi.Data
         }
 
         public DbSet<TqlPoWebApi.Models.Employee> Employee { get; set; }
+        public DbSet<PO> POs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

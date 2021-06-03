@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TqlPoWebApi.Data;
 
 namespace TqlPoWebApi.Migrations
 {
     [DbContext(typeof(PoContext))]
-    partial class PoContextModelSnapshot : ModelSnapshot
+    [Migration("20210603154736_added PO class")]
+    partial class addedPOclass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
