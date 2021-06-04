@@ -18,6 +18,7 @@ namespace TqlPoWebApi.Models
         [Required, StringLength(20)]
         public string Status { get; set; } = "New";
 
+  
         [Required, Column(TypeName = "decimal(9,2)")]
         public decimal Total { get; set; } = 0;
 
@@ -25,6 +26,7 @@ namespace TqlPoWebApi.Models
 
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
+        public static string StatusReview { get; internal set; }
 
         //default constructor
         public PO() { }

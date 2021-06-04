@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TqlPoWebApi.Data;
 
 namespace TqlPoWebApi.Migrations
 {
     [DbContext(typeof(PoContext))]
-    partial class PoContextModelSnapshot : ModelSnapshot
+    [Migration("20210603202202_correct props in item class")]
+    partial class correctpropsinitemclass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,54 +114,11 @@ namespace TqlPoWebApi.Migrations
                     b.ToTable("POs");
                 });
 
-            modelBuilder.Entity("TqlPoWebApi.Models.Poline", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("int");
-
-                    b.Property<int>("POId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ItemId");
-
-                    b.HasIndex("POId");
-
-                    b.ToTable("polines");
-                });
-
             modelBuilder.Entity("TqlPoWebApi.Models.PO", b =>
                 {
                     b.HasOne("TqlPoWebApi.Models.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TqlPoWebApi.Models.Poline", b =>
-                {
-                    b.HasOne("TqlPoWebApi.Models.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TqlPoWebApi.Models.PO", "Po")
-                        .WithMany()
-                        .HasForeignKey("POId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
