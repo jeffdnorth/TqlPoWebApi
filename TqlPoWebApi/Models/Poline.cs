@@ -13,12 +13,13 @@ namespace TqlPoWebApi.Models
         //items or line attached to a PO
         public int Quantity { get; set; } = 1;
 
-        public int MyProperty { get; set; }
 
-
-        //two FKs --- one pointing to PO Id, virtual to po is virtual, it is not a column cannot be null
+        //FK pointing to PO Id, virtual to po is virtual, first PO below is light green cuz its a class PO, and it calls,
+        // points to the PO class,
+        // 2nd PO is just a name of the instance of the class PO is not a column cannot be null
+        //
         public virtual  PO Po { get; set; }
-        //FK column points to class PO and PK ID...caps do not matter here
+        //FK column points to class PO and PO PK ID...caps do not matter here
         public int POId { get; set; }
 
         //2nd FK has a price, item id attached to item instance, requested on line, has to point to a po and an item
