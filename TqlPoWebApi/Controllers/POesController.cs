@@ -36,7 +36,8 @@ namespace TqlPoWebApi.Controllers
         }
 
         //put method for edit we are updating the Status on PO class
-        //the bracket id tells the method which PO we want to update   in postman localhost:53614/api/POes/2/edit goes on the PUT (for this method), GET, Post Delete
+        //the bracket id tells the method which PO we want to update
+        //in postman localhost:53614/api/POes/2/edit goes on the PUT (for this method), GET, Post Delete
         [HttpPut("{id}/edit")]
         public async Task<IActionResult> PutPoToEdit(int id)
         {

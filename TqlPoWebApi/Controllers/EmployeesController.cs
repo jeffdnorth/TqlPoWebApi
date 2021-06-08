@@ -11,8 +11,10 @@ using TqlPoWebApi.Models;
 namespace TqlPoWebApi.Controllers
 {
     //EVERYTHING BUT THE LOG IN IS GENERATED  THANK GOODNESS
-    //first line is for the front end web to tw controllers , 2nd line is another attribute evaluates to employees plural
-    //takes the class name of the controller and has to identify the controller, class name and then the controller, api controller is a provided 
+    //first line is for the front end web to tw controllers ,
+    //2nd line is another attribute evaluates to employees plural
+    //takes the class name of the controller and has to identify the controller,
+    //class name and then the controller, api controller is a provided 
    //attribute do not change ...all the way down to Public employee controler context 4 lines down
     [Route("api/[controller]")]
     [ApiController]
